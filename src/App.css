@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+#main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+#calendar {
+    display: grid;
+    border: 2px solid black;
+    margin: auto;
+    height: 75vh;
+    width: 98vw;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+    display: grid;
+    grid-template-rows: 1fr repeat(3, 3fr);
+}
+
+.day:not(:last-child) {
+    border-right: 2px solid black;
+}
+
+
+.day-name {
+    text-align: center;
+    font-size: 40px;
+    vertical-align: middle;
+    line-height: 1fr;
+    border-bottom: 2px solid black;
+}
+
+#food-list-container {
+    position: absolute;
+    width: 80vw;
+    height: 70vh;
+    border: 3px solid black;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+}
+
+#food-list-items {
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-evenly;
+}
+
+.food-list-item {
+    border: 1px solid black;
+    height: 250px;
+    width: 250px;
+}
+
+.food-list-item:hover {
+    cursor: pointer;
+}
