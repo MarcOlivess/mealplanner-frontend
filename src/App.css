@@ -16,6 +16,12 @@
     justify-content: center;
 }
 
+#title {
+    text-align: center;
+    font-size: 8rem;
+    background-color: rgb(38, 249, 186);
+}
+
 #calendar {
     display: grid;
     border: 2px solid black;
@@ -34,13 +40,28 @@
     border-right: 2px solid black;
 }
 
+.day-name-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 
 .day-name {
-    text-align: center;
+    margin: auto;
     font-size: 40px;
-    vertical-align: middle;
-    line-height: 1fr;
-    border-bottom: 2px solid black;
+    width: 80%;
+}
+
+.day-name span {
+    display: inline-block;
+    height: 125%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #1EFFBB;
 }
 
 #food-list-container {

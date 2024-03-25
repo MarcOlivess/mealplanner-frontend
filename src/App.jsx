@@ -77,6 +77,7 @@ function App() {
     <div id='main'>
       {!loading &&
         <div>
+          <h1 id="title">Weekly Food Schedule</h1>
           <Calendar calendarData={calendarData} removeFood={removeFood} addFood={addFood} />
           <button onClick={() => saveMealPlan()}>Save Meal Plan</button>
         </div>}
