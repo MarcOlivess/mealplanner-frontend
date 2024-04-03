@@ -15,6 +15,11 @@ function App() {
           id: 2,
           food: 'Cajun Pasta',
           url: 'https://www.budgetbytes.com/one-pot-creamy-cajun-chicken-pasta/',
+        },
+        {
+          id: 3,
+          food: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+          url: ''
         }
       ],
       lunch: [],

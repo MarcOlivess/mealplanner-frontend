@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .flex-row {
     display: flex;
     flex-direction: row;
@@ -26,7 +30,7 @@
     display: grid;
     border: 2px solid black;
     margin: auto;
-    height: 75vh;
+    height: 80vh;
     width: 98vw;
     grid-template-columns: repeat(7, 1fr);
 }
@@ -52,7 +56,7 @@
 
 .day-name {
     margin: auto;
-    font-size: 40px;
+    font-size: 32px;
     width: 80%;
 }
 
@@ -62,6 +66,95 @@
     width: 100%;
     border-radius: 15px;
     background-color: #1EFFBB;
+}
+
+.meal-header {
+    text-align: center;
+    font-size: 25px;
+}
+
+.meal {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    border-bottom: 2px solid black;
+}
+
+.meal-foods {
+    overflow: auto;
+    height: 150px;
+}
+
+.food {
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    height: 50px;
+    align-items: center;
+}
+
+.food p {
+    margin: auto;
+    width: 100%;
+    max-height: 100%;
+    font-size: 20px;
+    line-height: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.food div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.view-recipe-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #1EFFBB;
+    border: 1px solid black;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px black;
+    color: white;
+    border-radius: 10px;
+    padding: 4px 2px;
+    margin-right: 3px;
+}
+
+.add-food-button {
+    justify-self: flex-end;
+    padding: 0;
+    width: 90%;
+    height: 25px;
+    margin: auto;
+    margin-bottom: 5px;
+    background-color: #1EFFBB;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.add-food-button img {
+    height: 22px;
+    font-weight: bold;
+}
+
+.remove-food-button {
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #FD5E5E;
+}
+
+.remove-food-button img {
+    width: 100%;
 }
 
 #food-list-container {
