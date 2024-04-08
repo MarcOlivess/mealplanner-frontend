@@ -157,14 +157,62 @@ button:hover {
     width: 100%;
 }
 
-#food-list-container {
+#add-food-container {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     width: 80vw;
-    height: 70vh;
+    height: 85vh;
     border: 3px solid black;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: white;
+    padding: 0 75px;
+}
+
+#add-food-header {
+    justify-content: center;
+}
+
+#add-food-header h1 {
+    font-size: 50px;
+}
+
+#add-food-header button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    font-size: 40px;
+}
+
+#add-food-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+#add-food-inputs input {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#add-food-inputs div {
+    display: flex;
+    width: 50%;
+    gap: 10px;
+}
+
+#search {
+    height: 40px;
+    width: 35%;
+}
+
+.add-recipe-input {
+    height: 40px;
+    width: 50%;
 }
 
 #food-list-items {
@@ -173,13 +221,40 @@ button:hover {
     flex-direction: row;
     flex-wrap: wrap;
     overflow: auto;
-    justify-content: space-evenly;
+    gap: 20px;
 }
 
 .food-list-item {
-    border: 1px solid black;
+    border: 3px solid black;
+    border-radius: 32px;
     height: 250px;
     width: 250px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.food-list-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.food-list-item h2 {
+    position: absolute;
+    font-size: 25px;
+    line-height: 50px;
+    width: 100%;
+    max-height: 50px;
+    min-height: 50px;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.764);
+    color: white;
+    transition: max-height .4s linear;
+}
+
+.food-list-item h2:hover {
+    max-height: 200px;
 }
 
 .food-list-item:hover {
