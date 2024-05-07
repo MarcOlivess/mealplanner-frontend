@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FoodListItem from './FoodListItem'
 
 const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
@@ -89,7 +89,17 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
             url: 'https://www.recipetineats.com/quesadilla/',
         }
     ]
-    const [foodList, setFoodList] = useState(temp)
+    const [foodList, setFoodList] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:8080/recipes', {
+            mode: 'cors',
+        })
+            .then(response => response.json())
+            .then(json => {
+                setFoodList(json);
+            })
+            .catch(error => console.error(error));
+    }, [])
     const [foodInput, setFoodInput] = useState('');
     const [urlInput, setUrlInput] = useState('');
 
@@ -108,7 +118,7 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
                 </div>
             </div>
             <div id='food-list-items'>
-                {foodList.map((foodItem) => <FoodListItem key={foodItem.id} food={foodItem.food} url={foodItem.url} addFood={addFood} />)}
+                {foodList.map((foodItem) => <FoodListItem key={foodItem.id} food={foodItem.name} url={foodItem.url} imageUrl={foodItem.imageUrl} addFood={addFood} />)}
             </div>
         </div>
     )
