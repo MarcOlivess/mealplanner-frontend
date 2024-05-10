@@ -74,8 +74,15 @@ function App() {
   }
 
   useEffect(() => {
-    setCalendarData(temp);
-    setLoading(false);
+    fetch('http://localhost:8080/meals/calendar', {
+      mode: 'cors'
+    })
+      .then(response => response.json())
+      .then(json => {
+        setCalendarData(json);
+        setLoading(false);
+      })
+      .catch(error => console.error(error));
   }, [])
 
   return (

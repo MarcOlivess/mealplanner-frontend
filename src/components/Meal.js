@@ -32,7 +32,7 @@ const Meal = ({ meal, data, removeFood, day, addFood }) => {
         <div className='meal'>
             <p className='meal-header'>{meal}</p>
             <div className='meal-foods'>
-                {renderFoodList.map((food) => <Food key={food.id} id={food.id} food={food.food} url={food.url} removeFood={onRemove} />)}
+                {renderFoodList.map((food) => <Food key={food.id} id={food.id} food={food.name} url={food.url} removeFood={onRemove} />)}
             </div>
             <button className='add-food-button' onClick={() => showFoodContainer()}><img src={add}></img></button>
             {displayFoodContainer && <AddFoodContainer hideFoodContainer={hideFoodContainer} addFood={onAdd} day={day} meal={meal} />}
