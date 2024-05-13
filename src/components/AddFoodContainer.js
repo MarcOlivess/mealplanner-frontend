@@ -118,7 +118,7 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
                 </div>
             </div>
             <div id='food-list-items'>
-                {foodList.map((foodItem) => <FoodListItem key={foodItem.id} food={foodItem.name} url={foodItem.url} imageUrl={foodItem.imageUrl} addFood={addFood} />)}
+                {foodList.map((foodItem) => <FoodListItem key={foodItem.id} id={foodItem.id} name={foodItem.name} url={foodItem.url} imageUrl={foodItem.imageUrl} addFood={addFood} />)}
             </div>
         </div>
     )

@@ -3,7 +3,7 @@ import Food from './Food';
 import AddFoodContainer from './AddFoodContainer';
 import add from "../assets/add-button.svg";
 
-const Meal = ({ meal, data, removeFood, day, addFood }) => {
+const Meal = ({ meal, data, removeFood, day, addFood, mealId }) => {
     const [foodList, setFoodList] = useState(data);
     const [renderFoodList, setRenderFoodList] = useState(foodList);
     const [displayFoodContainer, setDisplayFoodContainer] = useState(false);
@@ -16,8 +16,8 @@ const Meal = ({ meal, data, removeFood, day, addFood }) => {
         setDisplayFoodContainer(true);
     }
 
-    const onAdd = (food, url) => {
-        addFood(day.toLowerCase(), meal.toLowerCase(), food, url);
+    const onAdd = (recipeId, recipeName, url, imageUrl) => {
+        addFood(recipeId, mealId, recipeName, url, imageUrl);
     };
 
     const onRemove = (idToRemove) => {

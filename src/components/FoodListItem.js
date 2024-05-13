@@ -1,10 +1,10 @@
 import React from 'react'
 
-const FoodListItem = ({ food, url, addFood, imageUrl }) => {
+const FoodListItem = ({ id, name, url, addFood, imageUrl }) => {
     return (
-        <div className='food-list-item' onClick={() => addFood(food, url)}>
+        <div className='food-list-item' onClick={() => addFood(id, name, url, imageUrl)}>
             <img src={imageUrl}></img>
-            <h2>{food}</h2>
+            <h2>{name}</h2>
         </div>
     )
 }

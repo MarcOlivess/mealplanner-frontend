@@ -59,9 +59,28 @@ function App() {
 
   const [loading, setLoading] = useState(true);
   const [calendarData, setCalendarData] = useState({});
+  const [updated, setUpdated] = useState(false);
 
-  const addFood = (day, meal, food, url) => {
-    setCalendarData({ ...calendarData, [day]: { ...calendarData[day], [meal]: [...calendarData[day][meal], { id: Math.random(), food: food, url: url }] } });
+  const addFood = (recipeId, mealId, name, url, imageUrl) => {
+    // setCalendarData({ ...calendarData, [day]: { ...calendarData[day], [meal]: [...calendarData[day][meal], { id: id, food: name, url: url, imageUrl }] } });
+    const recipe = {
+      id: recipeId,
+      name: name,
+      url: url,
+      imageUrl: imageUrl
+    }
+    fetch(`http://localhost:8080/meals/${mealId}/recipe`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      mode: "cors",
+      method: "POST",
+      body: JSON.stringify(recipe)
+    })
+      .then(response => response.json())
+      .then(data => setUpdated(true))
+
   }
 
   const removeFood = (day, meal, idToRemove) => {
@@ -74,6 +93,10 @@ function App() {
   }
 
   useEffect(() => {
+    if (!updated && !loading) {
+      return;
+    }
+
     fetch('http://localhost:8080/meals/calendar', {
       mode: 'cors'
     })
@@ -81,9 +104,10 @@ function App() {
       .then(json => {
         setCalendarData(json);
         setLoading(false);
+        setUpdated(false);
       })
       .catch(error => console.error(error));
-  }, [])
+  }, [updated])
 
   return (
     <div id='main'>
