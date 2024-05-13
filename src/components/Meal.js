@@ -21,7 +21,7 @@ const Meal = ({ meal, data, removeFood, day, addFood, mealId }) => {
     };
 
     const onRemove = (idToRemove) => {
-        removeFood(day.toLowerCase(), meal.toLowerCase(), idToRemove);
+        removeFood(mealId, idToRemove);
     }
 
     useEffect(() => {

@@ -83,9 +83,13 @@ function App() {
 
   }
 
-  const removeFood = (day, meal, idToRemove) => {
-    let temp = calendarData[day][meal].filter(food => food.id !== idToRemove);
-    setCalendarData({ ...calendarData, [day]: { ...calendarData[day], [meal]: temp } })
+  const removeFood = (mealId, idToRemove) => {
+    // let temp = calendarData[day][meal].filter(food => food.id !== idToRemove);
+    // setCalendarData({ ...calendarData, [day]: { ...calendarData[day], [meal]: temp } })
+    fetch(`http://localhost:8080/meals/${mealId}/recipe/${idToRemove}`, {
+      method: "DELETE"
+    })
+      .then(setUpdated(true));
   }
 
   const saveMealPlan = () => {
