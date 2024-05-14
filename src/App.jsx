@@ -92,10 +92,6 @@ function App() {
       .then(setUpdated(true));
   }
 
-  const saveMealPlan = () => {
-    window.localStorage.setItem('mealPlan', JSON.stringify(calendarData));
-  }
-
   useEffect(() => {
     if (!updated && !loading) {
       return;
@@ -119,7 +115,6 @@ function App() {
         <div>
           <h1 id="title">Weekly Food Schedule</h1>
           <Calendar calendarData={calendarData} removeFood={removeFood} addFood={addFood} />
-          <button onClick={() => saveMealPlan()}>Save Meal Plan</button>
         </div>}
     </div>
   );
