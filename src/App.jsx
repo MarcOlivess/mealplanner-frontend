@@ -69,7 +69,7 @@ function App() {
       url: url,
       imageUrl: imageUrl
     }
-    fetch(`http://localhost:8080/meals/${mealId}/recipe`, {
+    fetch(`http://mealplannerbackend.us-east-2.elasticbeanstalk.com/meals/${mealId}/recipe`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ function App() {
   const removeFood = (mealId, idToRemove) => {
     // let temp = calendarData[day][meal].filter(food => food.id !== idToRemove);
     // setCalendarData({ ...calendarData, [day]: { ...calendarData[day], [meal]: temp } })
-    fetch(`http://localhost:8080/meals/${mealId}/recipe/${idToRemove}`, {
+    fetch(`http://mealplannerbackend.us-east-2.elasticbeanstalk.com/meals/${mealId}/recipe/${idToRemove}`, {
       method: "DELETE"
     })
       .then(setUpdated(true));
@@ -97,7 +97,7 @@ function App() {
       return;
     }
 
-    fetch('http://localhost:8080/meals/calendar', {
+    fetch('http://mealplannerbackend.us-east-2.elasticbeanstalk.com/meals/calendar', {
       mode: 'cors'
     })
       .then(response => response.json())

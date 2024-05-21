@@ -91,7 +91,7 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
     ]
     const [foodList, setFoodList] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8080/recipes', {
+        fetch('http://mealplannerbackend.us-east-2.elasticbeanstalk.com/recipes', {
             mode: 'cors',
         })
             .then(response => response.json())
