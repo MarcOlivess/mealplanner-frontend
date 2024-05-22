@@ -87,6 +87,7 @@ function App() {
     // let temp = calendarData[day][meal].filter(food => food.id !== idToRemove);
     // setCalendarData({ ...calendarData, [day]: { ...calendarData[day], [meal]: temp } })
     fetch(`http://mealplannerbackend.us-east-2.elasticbeanstalk.com/meals/${mealId}/recipe/${idToRemove}`, {
+      mode: 'cors',
       method: "DELETE"
     })
       .then(setUpdated(true));
