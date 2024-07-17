@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import FoodListItem from './FoodListItem'
 
 const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
@@ -89,7 +89,24 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
             url: 'https://www.recipetineats.com/quesadilla/',
         }
     ]
+
+    const addRef = useRef(null);
+
+    const handleOutsideClick = (event) => {
+        if (addRef.current && !addRef.current.contains(event.target)) {
+            hideFoodContainer();
+        }
+    }
+
     const [foodList, setFoodList] = useState([]);
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleOutsideClick);
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        }
+    }, []);
+
     useEffect(() => {
         fetch('http://mealplannerbackend.us-east-2.elasticbeanstalk.com/recipes', {
             mode: 'cors',
@@ -104,7 +121,7 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
     const [urlInput, setUrlInput] = useState('');
 
     return (
-        <div id='add-food-container'>
+        <div ref={addRef} id='add-food-container'>
             <div id='add-food-header' className='flex-row'>
                 <h1>{day} - {meal}</h1>
                 <button onClick={() => hideFoodContainer()}>X</button>
