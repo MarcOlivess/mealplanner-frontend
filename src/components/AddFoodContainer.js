@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import FoodListItem from './FoodListItem'
+import { useAuth0 } from '@auth0/auth0-react';
 
 const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
     const temp = [
@@ -91,6 +92,7 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
     ]
 
     const addRef = useRef(null);
+    const { getAccessTokenSilently } = useAuth0();
 
     const handleOutsideClick = (event) => {
         if (addRef.current && !addRef.current.contains(event.target)) {
@@ -108,14 +110,23 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
     }, []);
 
     useEffect(() => {
-        fetch('http://mealplannerbackend.us-east-2.elasticbeanstalk.com/recipes', {
-            mode: 'cors',
-        })
-            .then(response => response.json())
-            .then(json => {
-                setFoodList(json);
+        const getRecipes = async () => {
+            const token = await getAccessTokenSilently();
+
+            fetch('http://localhost:8080/recipes', {
+                mode: 'cors',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
             })
-            .catch(error => console.error(error));
+                .then(response => response.json())
+                .then(json => {
+                    setFoodList(json);
+                })
+                .catch(error => console.error(error));
+        }
+
+        getRecipes();
     }, [])
     const [foodInput, setFoodInput] = useState('');
     const [urlInput, setUrlInput] = useState('');

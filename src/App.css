@@ -13,6 +13,70 @@ button:hover {
     flex-direction: row;
 }
 
+#header {
+    height: 5vh;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+#header nav {
+    height: 100%;
+}
+
+.nav-link {
+    list-style-type: none;
+    height: 100%;
+    width: 150px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background-color: #1EFFBB;
+}
+
+.nav-link-text {
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+#profile-dropdown {
+    max-width: 100px;
+}
+
+.planner-list-item {
+    padding: 5px;
+    position: relative;
+    height: 100px;
+    width: 85%;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.planner-list-item:hover {
+    cursor: pointer;
+}
+
+.planner-list-item-title {
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.planner-list-item-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#create-planner-container {
+    border: 1px solid black;
+    width: 80vw;
+    height: 50vh;
+}
+
 #main {
     height: 100vh;
     width: 100vw;
