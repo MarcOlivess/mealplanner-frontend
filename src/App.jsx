@@ -4,7 +4,7 @@ import { Calendar } from './components/Calendar';
 import LoginButton from './login';
 import Main from './components/Main';
 import LandingPage from './pages/LandingPage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
 import Layout from './routes/Layout';
 import Planners from './routes/Planners';
 import Planner from './components/Planner';
@@ -12,7 +12,7 @@ import Planner from './components/Planner';
 function App() {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route index element={<LandingPage />}></Route>
         <Route path='home' element={<Layout />}>
@@ -20,7 +20,7 @@ function App() {
           <Route path="planners/:plannerId" element={<Planner />}></Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

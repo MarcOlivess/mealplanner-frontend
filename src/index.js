@@ -12,7 +12,7 @@ root.render(
     domain="dev-wf4nmcn4xldpb5nl.us.auth0.com"
     clientId="3YXkgPWEcuATKTy6XUVIHdcsKT8ePl0Z"
     authorizationParams={{
-      redirect_uri: "http://localhost:3000/home",
+      redirect_uri: window.location.origin,
       audience: "mealplannerbackend.us-east-2.elasticbeanstalk.com",
     }}
     useRefreshTokens={true}
