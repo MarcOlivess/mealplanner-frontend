@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import PlannerListItem from '../components/PlannerListItem';
 import CreatePlannerContainer from '../components/CreatePlannerContainer';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const Planners = ({ }) => {
     const { getAccessTokenSilently, user } = useAuth0();
     const [plannerListItems, setPlannerListItems] = useState([]);
@@ -12,8 +14,9 @@ const Planners = ({ }) => {
     const createPlanner = async (plannerName) => {
         const token = await getAccessTokenSilently();
 
-        fetch(`http://localhost:8080/planner/user/${user.sub.replace("|", "")}`, {
+        fetch(`${backendUrl}/planner/user/${user.sub.replace("|", "")}`, {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
@@ -30,8 +33,9 @@ const Planners = ({ }) => {
     const deletePlanner = async (plannerId) => {
         const token = await getAccessTokenSilently();
 
-        fetch(`http://localhost:8080/planner/${plannerId}`, {
+        fetch(`${backendUrl}/planner/${plannerId}`, {
             method: 'DELETE',
+            mode: 'cors',
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -53,7 +57,8 @@ const Planners = ({ }) => {
 
         const getPlanners = async () => {
             const token = await getAccessTokenSilently();
-            fetch(`http://localhost:8080/planner/user/${user.sub.replace("|", "")}`, {
+            fetch(`${backendUrl}/planner/user/${user.sub.replace("|", "")}`, {
+                mode: 'cors',
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }

@@ -3,6 +3,8 @@ import { Calendar } from './Calendar';
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from '../logout';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 function Main() {
     const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
 
@@ -20,7 +22,7 @@ function Main() {
             imageUrl: imageUrl
         }
         console.log(mealId);
-        fetch(`http://localhost:8080/meals/${mealId}/recipe`, {
+        fetch(`${backendUrl}/${mealId}/recipe`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -36,7 +38,7 @@ function Main() {
     const removeFood = (mealId, idToRemove) => {
         // let temp = calendarData[day][meal].filter(food => food.id !== idToRemove);
         // setCalendarData({ ...calendarData, [day]: { ...calendarData[day], [meal]: temp } })
-        fetch(`http://localhost:8080/meals/${mealId}/recipe/${idToRemove}`, {
+        fetch(`${backendUrl}/${mealId}/recipe/${idToRemove}`, {
             mode: 'cors',
             method: "DELETE"
         })
@@ -50,7 +52,7 @@ function Main() {
             return;
         }
         //${user.sub.replace("|", "")}
-        fetch(`http://localhost:8080/planner/user/${user.sub.replace("|", "")}`, {
+        fetch(`${backendUrl}/planner/user/${user.sub.replace("|", "")}`, {
             mode: 'cors'
         })
             .then(response => response.json())

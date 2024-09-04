@@ -13,7 +13,7 @@ root.render(
     clientId="3YXkgPWEcuATKTy6XUVIHdcsKT8ePl0Z"
     authorizationParams={{
       redirect_uri: "http://localhost:3000/home",
-      audience: "http://localhost:8080",
+      audience: "mealplannerbackend.us-east-2.elasticbeanstalk.com",
     }}
     useRefreshTokens={true}
     cacheLocation='localstorage'

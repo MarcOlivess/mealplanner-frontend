@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { Calendar } from './Calendar';
 import { useAuth0 } from '@auth0/auth0-react';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const Planner = ({ }) => {
 
     const { getAccessTokenSilently } = useAuth0();
@@ -21,7 +23,7 @@ const Planner = ({ }) => {
             url: url,
             imageUrl: imageUrl
         }
-        fetch(`http://localhost:8080/meals/${mealId}/recipe`, {
+        fetch(`${backendUrl}/meals/${mealId}/recipe`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -38,7 +40,7 @@ const Planner = ({ }) => {
     const removeFood = async (mealId, idToRemove) => {
         const token = await getAccessTokenSilently();
 
-        fetch(`http://localhost:8080/meals/${mealId}/recipe/${idToRemove}`, {
+        fetch(`${backendUrl}/meals/${mealId}/recipe/${idToRemove}`, {
             mode: 'cors',
             method: "DELETE",
             headers: {
@@ -55,7 +57,7 @@ const Planner = ({ }) => {
 
         const getPlanner = async () => {
             const token = await getAccessTokenSilently();
-            fetch(`http://localhost:8080/planner/${plannerId}`, {
+            fetch(`${backendUrl}/planner/${plannerId}`, {
                 mode: 'cors',
                 headers: {
                     Authorization: `Bearer ${token}`

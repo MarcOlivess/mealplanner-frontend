@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react'
 import FoodListItem from './FoodListItem'
 import { useAuth0 } from '@auth0/auth0-react';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
     const temp = [
         {
@@ -113,7 +115,7 @@ const AddFoodContainer = ({ hideFoodContainer, addFood, day, meal }) => {
         const getRecipes = async () => {
             const token = await getAccessTokenSilently();
 
-            fetch('http://localhost:8080/recipes', {
+            fetch(`${backendUrl}/recipes`, {
                 mode: 'cors',
                 headers: {
                     Authorization: `Bearer ${token}`
