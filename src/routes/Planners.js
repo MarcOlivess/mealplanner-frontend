@@ -2,6 +2,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import React, { useEffect, useState } from 'react'
 import PlannerListItem from '../components/PlannerListItem';
 import CreatePlannerContainer from '../components/CreatePlannerContainer';
+import { Navbar, Nav, Button } from 'react-bootstrap';
+
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -74,11 +76,22 @@ const Planners = ({ }) => {
     }, [user, updated])
 
     return (
-        <div>
-            {plannerListItems.map((planner) => <PlannerListItem key={planner.id} id={planner.id} name={planner.name} deletePlanner={deletePlanner}></PlannerListItem>)}
-            <button onClick={() => onCreate()}>New Planner</button>
+        <div className='main' id='planners-layout'>
+            <div id='planners-topbar' className='flex-row'>
+                <Button id='new-planner-button' size='sm' onClick={() => onCreate()}>New Planner</Button>
+                <Navbar id='planners-navbar' className="justify-content-center">
+                    <Nav fill variant='tabs' defaultActiveKey='my-planners'>
+                        <Nav.Item>
+                            <Nav.Link className='planners-nav-link' eventKey='my-planners'>My Planners</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </Navbar>
+            </div>
+            <div id='planner-list-items'>
+                {plannerListItems.map((planner) => <PlannerListItem key={planner.id} id={planner.id} name={planner.name} deletePlanner={deletePlanner}></PlannerListItem>)}
+            </div>
             {displayCreatePlannerContainer && <CreatePlannerContainer displayContainer={setDisplayCreatePlannerContainer} createPlanner={createPlanner}></CreatePlannerContainer>}
-        </div>
+        </div >
     )
 }
 

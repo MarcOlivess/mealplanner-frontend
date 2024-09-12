@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import circlex from '../assets/circle-x.svg'
 
 const PlannerListItem = ({ id, deletePlanner, name }) => {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ const PlannerListItem = ({ id, deletePlanner, name }) => {
     return (
         <div className='planner-list-item' onClick={() => navigatePlanner()}>
             <p className='planner-list-item-title'>{name}</p>
-            <button className='planner-list-item-delete' onClick={(e) => onDelete(e)}>Delete</button>
+            <button className='planner-list-item-delete' onClick={(e) => onDelete(e)}><img src={circlex}></img></button>
         </div>
     )
 }

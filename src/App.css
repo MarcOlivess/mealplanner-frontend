@@ -14,8 +14,8 @@ button:hover {
 }
 
 #header {
-    height: 5vh;
-    padding: 5px;
+    height: 7vh;
+    padding: 10px;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid black;
@@ -23,6 +23,11 @@ button:hover {
 
 #header nav {
     height: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 93vh;
 }
 
 .nav-link {
@@ -46,6 +51,40 @@ button:hover {
     max-width: 100px;
 }
 
+#planners-layout {
+    padding: 10px;
+}
+
+#planners-topbar {
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+#new-planner-button {
+    width: 125px;
+    height: 50px;
+    font-size: 17px;
+}
+
+#planners-navbar {
+    width: 100%;
+    height: 100%;
+}
+
+.planners-nav-link {
+    font-size: 25px;
+}
+
+#planner-list-items {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .planner-list-item {
     padding: 5px;
     position: relative;
@@ -67,14 +106,49 @@ button:hover {
 
 .planner-list-item-delete {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 2px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+}
+
+.planner-list-item-delete img {
+    width: 100%;
+}
+
+.planner-list-item-delete img:hover {
+    filter: invert(23%) sepia(86%) saturate(3741%) hue-rotate(345deg) brightness(80%) contrast(128%);
 }
 
 #create-planner-container {
     border: 1px solid black;
-    width: 80vw;
-    height: 50vh;
+    background-color: white;
+    width: 30vw;
+    height: 20vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+#create-planner-container input {
+    width: 90%;
+}
+
+#create-planner-button {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 35px;
 }
 
 #main {

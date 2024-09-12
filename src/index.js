@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const audience = process.env.REACT_APP_AUDIENCE;
 
 root.render(
   <Auth0Provider
@@ -13,7 +14,7 @@ root.render(
     clientId="3YXkgPWEcuATKTy6XUVIHdcsKT8ePl0Z"
     authorizationParams={{
       redirect_uri: window.location.origin,
-      audience: "https://api.jm-mealplanner.xyz",
+      audience: `${audience}`,
     }}
     useRefreshTokens={true}
     cacheLocation='localstorage'
