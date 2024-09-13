@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Calendar } from './Calendar';
 import { useAuth0 } from '@auth0/auth0-react';
+import backArrow from '../assets/arrow-return-left.svg'
+import { Button } from 'react-bootstrap';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -13,6 +15,8 @@ const Planner = ({ }) => {
     const { plannerId } = useParams();
     const [updated, setUpdated] = useState(true);
     const [plannerData, setPlannerData] = useState()
+
+    const navigate = useNavigate();
 
     const addFood = async (recipeId, mealId, name, url, imageUrl) => {
         const token = await getAccessTokenSilently();
@@ -74,10 +78,13 @@ const Planner = ({ }) => {
         getPlanner();
     }, [updated])
     return (
-        <div id='main'>
-            <div>
-                {plannerData && <Calendar calendarData={plannerData.meals} removeFood={removeFood} addFood={addFood}></Calendar>}
+        <div className='main' id='planner'>
+            <div id='planner-topbar'>
+                <Button onClick={() => navigate(-1)} variant='outline-secondary' id='planner-back-button'><img src={backArrow}></img></Button>
+                {plannerData && <h2>{plannerData.name}</h2>}
+                <div></div>
             </div>
+            {plannerData && <Calendar calendarData={plannerData.meals} removeFood={removeFood} addFood={addFood}></Calendar>}
         </div >
     );
 }
