@@ -4,7 +4,7 @@ Concept and backend by @johann370
 My goal in this project was to create a functional and useful frontend to this project given a set of requirements and parameters from the backend, 
 such as the need to cycle through days, and have everything a single consice page in order to maintain an uniteruppted user experiance in the app.
 
-## Designs, Figma
+## Designs: Figma
 Wireframes: settled on making everything take place in the same place, moving around pages would be jarrng
 ![image](https://github.com/user-attachments/assets/f9b424a4-9641-4538-a9df-13eb5279d056)
 
