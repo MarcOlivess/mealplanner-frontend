@@ -13,6 +13,173 @@ button:hover {
     flex-direction: row;
 }
 
+#landing-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.263);
+}
+
+#carousel {
+    margin: auto;
+    width: 60%;
+    height: 50%;
+    background-color: rgb(59, 59, 59);
+    padding: 30px;
+}
+
+.carousel-item {
+    text-align: center;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 100px;
+}
+
+#carousel img {
+    width: 90%;
+}
+
+#header {
+    height: 7vh;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+#header nav {
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 93vh;
+}
+
+.nav-link {
+    list-style-type: none;
+    height: 100%;
+    width: 150px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background-color: #1EFFBB;
+}
+
+.nav-link-text {
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+#profile-dropdown {
+    max-width: 100px;
+}
+
+#planners-layout {
+    padding: 10px;
+}
+
+#planners-topbar {
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+#new-planner-button {
+    width: 125px;
+    height: 50px;
+    font-size: 17px;
+}
+
+#planners-navbar {
+    width: 100%;
+    height: 100%;
+}
+
+.planners-nav-link {
+    font-size: 25px;
+}
+
+#planner-list-items {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.planner-list-item {
+    padding: 5px;
+    position: relative;
+    height: 100px;
+    width: 85%;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.planner-list-item:hover {
+    cursor: pointer;
+}
+
+.planner-list-item-title {
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.planner-list-item-delete {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+}
+
+.planner-list-item-delete img {
+    width: 100%;
+}
+
+.planner-list-item-delete img:hover {
+    filter: invert(23%) sepia(86%) saturate(3741%) hue-rotate(345deg) brightness(80%) contrast(128%);
+}
+
+#create-planner-container {
+    border: 1px solid black;
+    background-color: white;
+    width: 30vw;
+    height: 20vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+#create-planner-container input {
+    width: 90%;
+}
+
+#create-planner-button {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 35px;
+}
+
 #main {
     height: 100vh;
     width: 100vw;
@@ -26,18 +193,34 @@ button:hover {
     background-color: rgb(38, 249, 186);
 }
 
+#planner-topbar {
+    display: flex;
+    height: 5%;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 100vw;
+}
+
+#planner-back-button {
+    width: 50px;
+}
+
+#planner-back-button img {
+    width: 25px;
+}
+
 #calendar {
     display: grid;
     border: 2px solid black;
     margin: auto;
-    height: 80vh;
+    height: 95%;
     width: 98vw;
     grid-template-columns: repeat(7, 1fr);
 }
 
 .day {
     display: grid;
-    grid-template-rows: 1fr repeat(3, 3fr);
+    grid-template-rows: 0.7fr repeat(3, auto);
 }
 
 .day:not(:last-child) {
@@ -57,6 +240,7 @@ button:hover {
 .day-name {
     margin: auto;
     font-size: 32px;
+    font-weight: bold;
     width: 80%;
 }
 
@@ -83,6 +267,7 @@ button:hover {
 .meal-foods {
     overflow: auto;
     height: 150px;
+    scrollbar-width: thin;
 }
 
 .food {
@@ -93,7 +278,7 @@ button:hover {
 }
 
 .food p {
-    margin: auto;
+    margin: 0 auto;
     width: 100%;
     max-height: 100%;
     font-size: 20px;
@@ -101,7 +286,6 @@ button:hover {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .food div {
@@ -126,22 +310,40 @@ button:hover {
     border-radius: 10px;
     padding: 4px 2px;
     margin-right: 3px;
+    line-height: 100%;
+}
+
+.view-recipe-button:hover {
+    background-color: #18e5a8;
+}
+
+.view-recipe-button:active {
+    background-color: #16d199;
 }
 
 .add-food-button {
     justify-self: flex-end;
     padding: 0;
-    width: 90%;
-    height: 25px;
+    width: 80%;
+    height: 35px;
     margin: auto;
     margin-bottom: 5px;
     background-color: #1EFFBB;
     border: 1px solid black;
     border-radius: 10px;
+    line-height: 0;
+}
+
+.add-food-button:hover {
+    background-color: #18e5a8;
+}
+
+.add-food-button:active {
+    background-color: #16d199;
 }
 
 .add-food-button img {
-    height: 22px;
+    height: 25px;
     font-weight: bold;
 }
 
@@ -151,6 +353,14 @@ button:hover {
     border: 1px solid black;
     border-radius: 10px;
     background-color: #FD5E5E;
+}
+
+.remove-food-button:hover {
+    background-color: #e95656;
+}
+
+.remove-food-button:active {
+    background-color: #d54c4c;
 }
 
 .remove-food-button img {
@@ -216,12 +426,11 @@ button:hover {
 }
 
 #food-list-items {
-    height: 90%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow: auto;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    row-gap: 25px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .food-list-item {
@@ -241,6 +450,8 @@ button:hover {
 }
 
 .food-list-item h2 {
+    margin: 0;
+    padding: 0 10px;
     position: absolute;
     font-size: 25px;
     line-height: 50px;
