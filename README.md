@@ -13,6 +13,6 @@ Mock Ups: finalized the potitions for the website parts, settled on color scheme
 ![image](https://github.com/user-attachments/assets/f91c8b7f-d3ef-437f-a336-73093221bd78)
 
 ## In Progress
-Creation of the first website, to be done in react or HTML/CSS
+Creation of the website, being made in javascript(react)
 
-After, connect the front with the back, 
+After, connect the front with the back in collaboration with @johann370
